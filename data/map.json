@@ -1,0 +1,270 @@
+{
+    "type": "Map",
+    "maps": [
+        {
+            "text": "IND",
+            "size": 1.0,
+            "country": "India",
+            "city": "Chennai",
+            "lat": "13.089869",
+            "lon": "80.245901"
+        },
+        {
+            "text": "KOR",
+            "size": 1.0,
+            "country": "South Korea",
+            "city": "Seoul",
+            "lat": "37.56986245360689",
+            "lon": "127.00020905952245"
+        },
+        {
+            "text": "AF",
+            "size": 1.0,
+            "country": "Afghanistan",
+            "city": "Kabul",
+            "lat": "34.555349",
+            "lon": "69.207486"
+          },
+          {
+            "text": "AS",
+            "size": 1.0,
+            "country": "American Samoa",
+            "city": "Pago Pago",
+            "lat": "-14.275632",
+            "lon": "-170.702036"
+          },
+          {
+            "text": "AD",
+            "size": 1.0,
+            "country": "Andorra",
+            "city": "Andorra la Vella",
+            "lat": "42.506317",
+            "lon": "1.521835"
+          },
+          {
+            "text": "AO",
+            "size": 1.0,
+            "country": "Angola",
+            "city": "Luanda",
+            "lat": "-8.839988",
+            "lon": "13.289437"
+          },
+          {
+            "text": "AI",
+            "size": 1.0,
+            "country": "Anguilla",
+            "city": "The Valley",
+            "lat": "18.216667",
+            "lon": "-63.05"
+          },
+          {
+            "text": "AR",
+            "size": 1.0,
+            "country": "Argentina",
+            "city": "Buenos Aires",
+            "lat": "-34.608418",
+            "lon": "-58.373161"
+          },
+          {
+            "text": "AM",
+            "size": 1.0,
+            "country": "Armenia",
+            "city": "Yerevan",
+            "lat": "40.183333",
+            "lon": "44.516667"
+          },
+          {
+            "text": "AU",
+            "size": 1.0,
+            "country": "Australia",
+            "city": "Canberra",
+            "lat": "-35.282",
+            "lon": "149.128684"
+          },
+          {
+            "text": "EG",
+            "size": 1.0,
+            "country": "Egypt",
+            "city": "Cairo",
+            "lat": "30.0444",
+            "lon": "31.2357"
+          },
+          {
+            "text": "BS",
+            "size": 1.0,
+            "country": "Bahamas",
+            "city": "Nassau",
+            "lat": "25.03428",
+            "lon": "-77.39628"
+          },
+          {
+            "text":"JPN",
+            "size": 1.0,
+            "country": "Japan",
+            "city": "Hokkaido",
+            "lat": "43.2203",
+            "lon": "142.8635"
+          },
+          {
+            "text": "BH",
+            "size": 1.0,
+            "country": "Bahrain",
+            "city": "Manama",
+            "lat": "26.23612",
+            "lon": "50.58306"
+          },
+          {
+            "text": "CA",
+            "size": 1.0,
+            "country": "Canada",
+            "city": "Ottawa",
+            "lat": "53.5461",
+            "lon": "-113.4938"
+          },
+          {
+            "text": "US",
+            "size": 1.0,
+            "country": "United States",
+            "city": "Los Angeles",
+            "lat": "34.0522",
+            "lon": "-118.2437"
+          },
+          {
+            "text": "PL",
+            "size": 1.0,
+            "country": "Poland",
+            "city": "Warsaw",
+            "lat": "52.2297",
+            "lon": "21.0122"
+          },
+          {
+            "text": "SV",
+            "size": 1.0,
+            "country": "El Salvador",
+            "city": "San Salvador",
+            "lat": "13.6929",
+            "lon": "-89.2182"
+          },
+          {
+            "text": "BD",
+            "size": 1.0,
+            "country": "Bangladesh",
+            "city": "Dhaka",
+            "lat": "23.810331",
+            "lon": "90.412521"
+          },
+          {
+            "text": "BB",
+            "size": 1.0,
+            "country": "Barbados",
+            "city": "Bridgetown",
+            "lat": "13.0969",
+            "lon": "-59.6144"
+          },
+          {
+            "text": "BE",
+            "size": 1.0,
+            "country": "Belgium",
+            "city": "Brussels",
+            "lat": "50.85045",
+            "lon": "4.34878"
+          },
+          {
+            "text": "BZ",
+            "size": 1.0,
+            "country": "Belize",
+            "city": "Belmopan",
+            "lat": "17.25",
+            "lon": "-88.7667"
+          },
+          {
+            "text": "BJ",
+            "size": 1.0,
+            "country": "Benin",
+            "city": "Porto-Novo",
+            "lat": "6.496857",
+            "lon": "2.628852"
+          },
+          {
+            "text": "BM",
+            "size": 1.0,
+            "country": "Bermuda",
+            "city": "Hamilton",
+            "lat": "32.2949",
+            "lon": "-64.7814"
+          },
+          {
+            "text": "BO",
+            "size": 1.0,
+            "country": "Bolivia",
+            "city": "Sucre",
+            "lat": "-19.03332",
+            "lon": "-65.26274"
+          },
+          {
+            "text": "BW",
+            "size": 1.0,
+            "country": "Botswana",
+            "city": "Gaborone",
+            "lat": "-24.6282",
+            "lon": "25.9231"
+          },
+          {
+            "text": "BR",
+            "size": 1.0,
+            "country": "Brazil",
+            "city": "Brasilia",
+            "lat": "-15.7942",
+            "lon": "-47.8822"
+          },
+          {
+            "text": "BN",
+            "size": 1.0,
+            "country": "Brunei",
+            "city": "Bandar Seri Begawan",
+            "lat": "4.9031",
+            "lon": "114.9398"
+          },
+          {
+            "text": "BG",
+            "size": 1.0,
+            "country": "Bulgaria",
+            "city": "Sofia",
+            "lat": "42.6977",
+            "lon": "23.3219"
+          },
+          {
+            "text": "BI",
+            "size": 1.0,
+            "country": "Burundi",
+            "city": "Gitega",
+            "lat": "-3.4264",
+            "lon": "29.9306"
+          },
+          {
+            "text": "CV",
+            "size": 1.0,
+            "country": "Cabo Verde",
+            "city": "Praia",
+            "lat": "14.9331",
+            "lon": "-23.5133"
+          },
+          {
+            "text": "KH",
+            "size": 1.0,
+            "country": "Cambodia",
+            "city": "Phnom Penh",
+            "lat": "11.5564",
+            "lon": "104.9282"
+          },
+          {
+            "text": "CM",
+            "size": 1.0,
+            "country": "Cameroon",
+            "city": "Yaounde",
+            "lat": "3.848",
+            "lon": "11.5021"
+          }
+    
+    ]
+}
