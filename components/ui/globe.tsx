@@ -1,6 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
+import {
+  Color,
+  Scene,
+  Fog,
+  PerspectiveCamera,
+  Vector3,
+  Vector2,
+  Raycaster,
+} from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -63,25 +71,69 @@ export function Globe({ globeConfig, data }: WorldProps) {
       }[]
     | null
   >(null);
-
+  const { camera, gl } = useThree();
   const globeRef = useRef<ThreeGlobe | null>(null);
+  const mouse = useRef(new Vector2());
+  const raycaster = useRef(new Raycaster());
+  const [isDragging, setIsDragging] = useState(false);
 
   const defaultProps = {
     pointSize: 1,
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
-    atmosphereAltitude: 0.8,
+    atmosphereAltitude: 0.1,
     polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#0044ff",
+    globeColor: "#1d072e",
     emissive: "#000000",
     emissiveIntensity: 0.1,
-    shininess: 0.3,
+    shininess: 0.9,
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
     maxRings: 3,
     ...globeConfig,
   };
+
+  useEffect(() => {
+    const handleMouseDown = () => setIsDragging(true);
+    const handleMouseUp = () => {
+      setIsDragging(false);
+      handleMouseClick();
+    };
+
+    const handleMouseClick = () => {
+      if (isDragging) return;
+
+      const globeElement = globeRef.current;
+      if (!globeElement) return;
+
+      // Calculate mouse position in normalized device coordinates
+      mouse.current.x =
+        (gl.domElement.width / 2 / gl.domElement.clientWidth) * 2 - 1;
+      mouse.current.y =
+        -(gl.domElement.height / 2 / gl.domElement.clientHeight) * 2 + 1;
+
+      // Update the picking ray with the camera and mouse position
+      raycaster.current.setFromCamera(mouse.current, camera);
+
+      // Calculate objects intersecting the picking ray
+      const intersects = raycaster.current.intersectObject(globeElement, true);
+
+      if (intersects.length > 0) {
+        console.log("Globe clicked!", intersects[0].point);
+        // Handle the click event here
+      }
+    };
+
+    const canvasElement = gl.domElement;
+    canvasElement.addEventListener("mousedown", handleMouseDown);
+    canvasElement.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      canvasElement.removeEventListener("mousedown", handleMouseDown);
+      canvasElement.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [camera, gl, isDragging]);
 
   useEffect(() => {
     if (globeRef.current) {
@@ -149,24 +201,27 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const startAnimation = () => {
     // Convert lat and lon to numbers
-    const points = map.maps.map((point) => ({
-      size: point.size || defaultProps.pointSize,
-      name: point.country,
-      city: point.city,
-      color: () => "#ffff", // Set the color of the point
-      lat: Number(point.lat), // Convert lat to number
-      lng: Number(point.lon), // Convert lon to number
-    }));
-
+    const arcs = map.maps;
+    let points = [];
+    for (let i = 0; i < arcs.length; i++) {
+      const arc = arcs[i];
+      points.push({
+        color: defaultProps.globeColor,
+        size: defaultProps.pointSize,
+        name: arc.country,
+        lat: arc.lat,
+        lng: arc.lon,
+      });
+    }
     if (!globeRef.current || !globeData) return;
     console.log("creating points");
     globeRef.current
       .labelsData(points)
-      .labelColor(() => "#ffffff") // Set label color to white
-      .labelSize(1.5)
-      .labelResolution(3)
+      .labelColor(() => "#EBB8DD") // Set label color to white
+      .labelSize(1.3)
+      .labelResolution(6)
       .labelText("name")
-      .labelDotRadius(0.3)
+      .labelDotRadius(0.5)
       .labelAltitude(0.01)
       .pointsData(points)
       .pointColor(() => "#ffcb21")
@@ -216,13 +271,14 @@ export function WebGLRendererConfig() {
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
+  scene.fog = new Fog(0xffffff, 400, 2000);
   return (
     <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
-      <ambientLight color={globeConfig.ambientLight} intensity={0.8} />
+      <ambientLight color={globeConfig.ambientLight} intensity={0.1} />
       <directionalLight
         color={globeConfig.directionalLeftLight}
-        position={new Vector3(-800, 2000, 400)}
+        position={new Vector3(-400, 100, 400)}
       />
       <directionalLight
         color={globeConfig.directionalTopLight}
@@ -237,8 +293,8 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={true}
-        minDistance={300}
-        maxDistance={1200}
+        minDistance={282}
+        maxDistance={800}
         autoRotateSpeed={1}
         autoRotate={false}
         minPolarAngle={Math.PI / 3.5}

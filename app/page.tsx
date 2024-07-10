@@ -12,13 +12,13 @@ const World = dynamic(
 );
 const globeConfig = {
   pointSize: 8,
-  globeColor: "#062056",
-  showAtmosphere: true,
+  globeColor: "#1d072e",
+  showAtmosphere: false,
   atmosphereColor: "#FFFFFF",
   atmosphereAltitude: 0.1,
-  emissive: "#062056",
+  emissive: "#000000",
   emissiveIntensity: 0.1,
-  shininess: 0.9,
+  shininess: 0.2,
   polygonColor: "rgba(255,255,255,0.7)",
   ambientLight: "#38bdf8",
   directionalLeftLight: "#ffffff",
